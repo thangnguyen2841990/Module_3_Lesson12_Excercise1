@@ -114,11 +114,12 @@ public class ProductDAO implements IProductDAO {
         Connection connection = getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement(UPDATE_PRODUCT_BY_ID);
-            statement.setInt(1,product.getId());
-            statement.setString(2,product.getName());
-            statement.setDouble(3,product.getPrice());
-            statement.setInt(4,product.getAmount());
-            statement.setString(5,product.getDescription());
+
+            statement.setString(1,product.getName());
+            statement.setDouble(2,product.getPrice());
+            statement.setInt(3,product.getAmount());
+            statement.setString(4,product.getDescription());
+            statement.setInt(5,product.getId());
             rowUpdate = statement.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
